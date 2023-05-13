@@ -1,0 +1,130 @@
+:root {
+  --xcell-black: #191c26;
+  --bootstrap-black: #212529;
+  --bootstrap-blue: #0d6efd;
+  /* --common-width: 36%; */
+}
+/*font-family: 'Akronim', cursive;
+  font-family: 'Amatic SC', cursive;
+  font-family: 'Beau Rivage', cursive;
+  font-family: 'Berkshire Swash', cursive;
+  font-family: 'Cinzel', serif;
+  font-family: 'Dancing Script', cursive;
+  font-family: 'Libre Bodoni', serif;
+  font-family: 'Montserrat', sans-serif;
+  font-family: 'Quicksand', sans-serif;
+  */
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: "Cinzel", serif;
+  height: 100vh;
+  background-image: linear-gradient(to left top, #fef2f4, #ffe5ca);
+  box-sizing: border-box;
+}
+.page-heading {
+  font-family: "Cinzel", serif;
+  font-size: 2.5rem;
+  color: var(--xcell-black);
+  margin-top: 10vh;
+  width: 50%;
+  text-align: center;
+  margin: 10vh auto auto;
+}
+h2.date {
+  font-family: "Dancing Script", cursive;
+  text-align: left;
+  margin-bottom: 5vh;
+  font-size: 1.8rem;
+}
+
+h2.listName{
+  text-align: center;
+  font-family: "Cinzel", serif;
+  font-size:2rem;
+  margin-bottom:5vh;
+}
+
+.list {
+  max-height: 30vh;
+  overflow: auto;
+  width: 35%;
+  margin: auto;
+  list-style-type: none;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+li input:checked + span {
+  text-decoration: line-through;
+  text-decoration-color: #a683e3;
+}
+.list li:first-child {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+.list li {
+  border: 1px solid var(--bootstrap-black);
+  border-bottom: none;
+  margin-bottom: 1px;
+  font-size: 1.3rem;
+  padding: 10px;
+}
+.list li:last-child {
+  border-bottom: 1px solid var(--bootstrap-black);
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+form.input {
+  font-family: 'Quicksand', sans-serif;
+  box-sizing: border-box;
+  width: 35%;
+  margin: auto;
+  padding: 10px;
+}
+
+form.input .input, .submit {
+  font-family: inherit;
+  font-size: 20px;
+  padding: 07px;
+  margin-bottom: 3px;
+  margin-top: 10px;
+  background: inherit;
+  border: none;
+  border-bottom: 1px solid black;
+  width: 70%;
+}
+.input:focus {
+  outline: none;
+}
+
+form.input .submit {
+  padding: 4px;
+  width: 45px;
+  font-size: 26px;
+  border:1px solid black;
+  border-radius: 50%;
+  background-color:#8080804d;
+}
+form.input .submit:hover {
+  cursor: pointer;
+  background-color: inherit;
+}
+
+form.input .submit:active{
+  transform: scale(0.95);
+  /* box-shadow: 3px 2px 25px 1px rgba(0,0,0,0.25); */
+}
+/*Media Queries*/
+@media screen and (max-width: 500px) {
+  .page-heading {
+    font-size: 1.8rem;
+    width: 100%;
+  }
+  h2 {
+    font-size: 1.3rem;
+  }
+}

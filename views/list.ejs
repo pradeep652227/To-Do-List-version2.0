@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MySiteTitle</title>
+  <link rel="stylesheet" type="text/css" href="/css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Akronim&family=Amatic+SC:wght@400;700&family=Beau+Rivage&family=Berkshire+Swash&family=Cinzel&family=Dancing+Script:wght@400;700&family=Libre+Bodoni:wght@600&family=Montserrat:ital,wght@0,700;1,100&family=Quicksand:wght@300;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <h1 class="page-heading">To-Do List</h1>
+  <h2 class="date"><%=Date%></h2>
+  <h2 class="listName"><%=listName%></h2>
+  <div class="list-box">
+    <% let n=listItems.length %>
+    <%if(n!=0){%>
+    <ul class="list">
+      <form action="/delete" method="post">
+        <%  for(let i=0;i<n;i++){ %>
+        <li><!--Outputing All the List Items-->
+          <input type="checkbox" name="checkbox" value="<%=listItems[i]._id%>" onChange="this.form.submit()"> <!--Sending the form 
+            upon the checking of checkbox-->
+          <span class="list-item" name="notDeleted"><%=listItems[i].item%></span>
+        </li>
+        <%   }%>
+      </form>
+    </ul>
+    <%}%>
+    <form action="/" method="post" class="input">
+      <!-- <label for="listName">List Name:</label> -->
+      <input class="input" placeholder="New list Item" type="text" id="itemName" name="itemName" value="testing value attribute">
+
+      <!-- <input class="submit" type="submit" value="+"> -->
+      <button type="submit" role="submit" class="submit" name="listName" value="<%=listName%>">+</button>
+    </form>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MySiteTitle</title>
+  <link rel="stylesheet" type="text/css" href="/css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Akronim&family=Amatic+SC:wght@400;700&family=Beau+Rivage&family=Berkshire+Swash&family=Cinzel&family=Dancing+Script:wght@400;700&family=Libre+Bodoni:wght@600&family=Montserrat:ital,wght@0,700;1,100&family=Quicksand:wght@300;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <h1 class="page-heading">To-Do List</h1>
+  <h2><%=Date%></h2>
+  <div class="list-box">
+    <% if(listItems.length!=0) { %>
+    <ul class="list">
+      <% for(let i=0;i<listItems.length;i++){ %>
+        <li><input type="checkbox"><span><%=listItems[i]%></span></li>
+     <% } %>
+      <!-- <li>Buy Food</li>
+        <li>Cook Food</li>
+        <li>Eat Food</li>
+        <li>Sleep</li>
+        <li>Wake Up</li> -->
+    </ul>
+    <%  } %>
+    <form action="/" method="post">
+      <!-- <label for="listName">List Name:</label> -->
+      <input class="input" placeholder="New List Item" type="text" id="itemName" name="itemName">
+
+      <input class="submit" type="submit" value="+">
+    </form>
+
+  </div>
+</body>
+
+</html>
