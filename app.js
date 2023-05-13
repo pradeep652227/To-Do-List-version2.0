@@ -25,16 +25,16 @@ const listItemSchema = new Schema({
   item: { type: String, unique: false},
 });
 const ListItemModel = new model("ListItemModel", listItemSchema); //model created
-let item1 = new ListItemModel({
-  item: "Welcome To Your To Do List!",
-});
-let item2 = new ListItemModel({
-  item: "To Add a New Item, press +",
-});
-let item3 = new ListItemModel({
-  item: "Check any Item to Remove it",
-});
-const startingItems =[item1, item2, item3];
+// let item1 = new ListItemModel({
+//   item: "Welcome To Your To Do List!",
+// });
+// let item2 = new ListItemModel({
+//   item: "To Add a New Item, press +",
+// });
+// let item3 = new ListItemModel({
+//   item: "Check any Item to Remove it",
+// });
+// const startingItems =[item1, item2, item3];
 
 app.post("/", (req, res) => {
   let listItem = req.body.itemName;
@@ -56,7 +56,7 @@ app.post("/", (req, res) => {
               listItems: result,
             });
           })
-          .catch((err) => console.log("Error in Returning Array= " + err));
+         .catch((err) => {console.log("Error in Returning Array= " + err); alert("Error in Retrieving the Data, Kindly Try Again");});
       })
       .catch((err) => {
         console.log("Error in adding the item, err= " + err);
@@ -92,7 +92,7 @@ app.get("/", (req, res) => {
       console.log("Returned Array in 1st / request= " + result);
       res.render("list", { Date: date(), listName: "Home", listItems: result });
     })
-    .catch((err) => console.log("Error in Returning Array= " + err));
+    .catch((err) => {console.log("Error in Returning Array= " + err); alert("Error in Retrieving the Data, Kindly Try Again");});
 });
 
 //custom lists
@@ -106,7 +106,7 @@ const listSchema = new mongoose.Schema({
 const List = new mongoose.model("List", listSchema);
 
 //custom get Requests or Dynamic routes
-app.get("/:customList", (req, res) => {
+/*app.get("/:customList", (req, res) => {
   let newListName = req.params.customList;
   console.log("newListName in custom route= " + newListName);
   List.findOne({ name: newListName })
@@ -146,7 +146,7 @@ app.get("/:customList", (req, res) => {
     })
     .catch((err) => console.log("Error in custom routes= " + err));
 });
-
+*/
 
 app.listen(process.env.PORT || port, () => {
   console.log("server is up and runnig");
