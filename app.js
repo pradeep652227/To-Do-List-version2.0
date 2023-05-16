@@ -29,7 +29,7 @@ const listItemSchema = new Schema(
   { timestamps: true }
 );
 const ListItemModel = new model("ListItemModel", listItemSchema); //model created
-<<<<<<< HEAD
+
 
 const item1 = new ListItemModel({
   item: "Welcome To Your To Do List!",
@@ -41,18 +41,6 @@ const item3 = new ListItemModel({
   item: "Check any Item to Remove it",
 });
 const startingItems = [item1, item2, item3]; //default list
-=======
-// let item1 = new ListItemModel({
-//   item: "Welcome To Your To Do List!",
-// });
-// let item2 = new ListItemModel({
-//   item: "To Add a New Item, press +",
-// });
-// let item3 = new ListItemModel({
-//   item: "Check any Item to Remove it",
-// });
-// const startingItems =[item1, item2, item3];
->>>>>>> 52f1026131c12e14080fbd0a6899f1b22f3c6b48
 
 //custom lists
 const listSchema = new mongoose.Schema(
@@ -86,7 +74,6 @@ app.get("/lists/:customList", (req, res) => {
             name: newListName,
             listItems: startingItems,
           })
-<<<<<<< HEAD
             .then((result) => {
               console.log("Saved the item= " + result.name);
               res.render("list", {
@@ -110,9 +97,6 @@ app.get("/lists/:customList", (req, res) => {
             listItems: result.listItems,
           });
         }
-=======
-         .catch((err) => {console.log("Error in Returning Array= " + err); alert("Error in Retrieving the Data, Kindly Try Again");});
->>>>>>> 52f1026131c12e14080fbd0a6899f1b22f3c6b48
       })
       .catch((err) => {
         console.log("Error in custom routes= " + err);
@@ -264,7 +248,6 @@ app.post("/delete", (req, res) => {
 });
 app.get("/", (req, res) => {
   ListItemModel.find({})
-<<<<<<< HEAD
     .then((resultArr) => {
       console.log("Returned Array in 1st / request= " + resultArr);
       if (resultArr.length == 0) {
@@ -272,50 +255,6 @@ app.get("/", (req, res) => {
           .then((resultArr) => {
             console.log("Inserted starting elements in home list");
             res.redirect("/");
-=======
-    .then((result) => {
-      console.log("Returned Array in 1st / request= " + result);
-      res.render("list", { Date: date(), listName: "Home", listItems: result });
-    })
-    .catch((err) => {console.log("Error in Returning Array= " + err); alert("Error in Retrieving the Data, Kindly Try Again");});
-});
-
-//custom lists
-const listSchema = new mongoose.Schema({
-  name: { type: String, unique: true },
-  listItems: {
-    type:[listItemSchema],
-    unique:false
-  }
-});
-const List = new mongoose.model("List", listSchema);
-
-//custom get Requests or Dynamic routes
-/*app.get("/:customList", (req, res) => {
-  let newListName = req.params.customList;
-  console.log("newListName in custom route= " + newListName);
-  List.findOne({ name: newListName })
-    .then((result) => {
-      if (!result) {
-        //new List
-        console.log("List does not exist, so creating " + newListName + "list");
-        let newList = new List({
-          name: newListName,
-          listItems: startingItems
-        });
-        newList
-          .save()
-          .then((result) => {
-            console.log("Created " + newList.name + "list");
-            console.log("startingItems= " + startingItems);
-            console.log("newList= " + newList);
-            console.log("newList.listItems= " + newList.listItems);
-            // res.render("list", {
-            //   Date: date(),
-            //   listName: newList.name,
-            //   listItems: newList.listItems,
-            // });
->>>>>>> 52f1026131c12e14080fbd0a6899f1b22f3c6b48
           })
           .catch((err) => {
             console.log(
@@ -335,11 +274,6 @@ const List = new mongoose.model("List", listSchema);
     })
     .catch((err) => console.log("Error in Returning Array= " + err));
 });
-<<<<<<< HEAD
-=======
-*/
-
->>>>>>> 52f1026131c12e14080fbd0a6899f1b22f3c6b48
 app.listen(process.env.PORT || port, () => {
   console.log("server is up and runnig");
 });
