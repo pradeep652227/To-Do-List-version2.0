@@ -21,13 +21,19 @@
     <%if(n!=0){%>
     <ul class="list">
       <form action="/delete" method="post">
-        <%  for(let i=0;i<n;i++){ %>
-        <li><!--Outputing All the List Items-->
-          <input type="checkbox" name="checkbox" value="<%=listItems[i]._id%>" onChange="this.form.submit()"> <!--Sending the form 
+        <input type="text" role="submit" class="listName" name="listName" value="<%=listName%>">
+        <div class="li-parent"> 
+          <%  for(let i=0;i<n;i++){ %>
+          <li>
+            <!--Outputing All the List Items-->
+            <input type="checkbox" name="checkbox" value="<%=listItems[i]._id%>" onChange="this.form.submit()">
+            <!--Sending the form 
             upon the checking of checkbox-->
-          <span class="list-item" name="notDeleted"><%=listItems[i].item%></span>
-        </li>
-        <%   }%>
+            <span class="list-item"><%=listItems[i].item%></span>
+          </li>
+          <%   }%>
+        </div>
+
       </form>
     </ul>
     <%}%>
@@ -41,4 +47,5 @@
 
   </div>
 </body>
+
 </html>

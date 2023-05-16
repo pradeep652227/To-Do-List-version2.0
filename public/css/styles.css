@@ -56,7 +56,11 @@ h2.listName{
   padding: 10px;
   box-sizing: border-box;
 }
-
+.list .listName{
+  position: absolute;
+  border:0px !important;
+  visibility: hidden;
+}
 li input:checked + span {
   text-decoration: line-through;
   text-decoration-color: #a683e3;
