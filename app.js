@@ -73,7 +73,7 @@ app.get("/lists/:customList", (req, res) => {
             name: newListName,
             listItems: startingItems,
           })
-          .then((result) => {
+            .then((result) => {
               console.log("Saved the item= " + result.name);
               res.render("list", {
                 Date: date(),
@@ -180,7 +180,7 @@ app.post("/", (req, res) => {
 app.post("/delete", (req, res) => {
   let deleteItem = req.body.checkbox; //id of the item to delete
   let listName = req.body.listName.toLowerCase(); //name of the list in which the item to be deleted is
-  listName =listName.charAt(0).toUpperCase() +listName.slice(1);
+  listName = listName.charAt(0).toUpperCase() + listName.slice(1);
   console.log("Item/List to Delete= " + deleteItem);
   console.log(req.body);
 
@@ -203,7 +203,6 @@ app.post("/delete", (req, res) => {
         });
     }
   } else {
-
     //item is in the custom list
     console.log("Deleting an item of a list");
     List.findOneAndUpdate(
@@ -254,6 +253,7 @@ app.get("/", (req, res) => {
         ListItemModel.insertMany(startingItems)
           .then((resultArr) => {
             console.log("Inserted starting elements in home list");
+            res.redirect("/");
           })
           .catch((err) => {
             console.log(
@@ -263,16 +263,16 @@ app.get("/", (req, res) => {
               "Can not render the home list right now. Try different lists at /lists/"
             );
           });
+      } else {
+        res.render("list", {
+          Date: date(),
+          listName: "Home",
+          listItems: resultArr,
+        });
       }
-      res.render("list", {
-        Date: date(),
-        listName: "Home",
-        listItems: resultArr,
-      });
     })
     .catch((err) => console.log("Error in Returning Array= " + err));
 });
-
 app.listen(process.env.PORT || port, () => {
   console.log("server is up and runnig");
 });
