@@ -2,7 +2,6 @@ const express = require("express");
 const app = express();
 const port = 4000;
 const alert = require("alert");
-require("dotenv").config();
 
 app.set("title", "MySite");
 app.use(express.urlencoded({ extended: true })); //for body-parser
@@ -17,7 +16,7 @@ let date = require(__dirname + "/date.js");
 const mongoose = require("mongoose");
 // mongoose.connect("mongodb://127.0.0.1:27017/to-do-list");
 mongoose.connect(
-  String(process.env.CONNECTION_URL)
+  "mongodb+srv://ps652227:pardeep978@cluster0.wdvs1nn.mongodb.net/To-Do-ListDB"
 );
 const Schema = mongoose.Schema;
 const model = mongoose.model;
